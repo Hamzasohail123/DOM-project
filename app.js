@@ -7,8 +7,19 @@ let random = document.getElementById("rainbowMode");
 let sizeValue = document.getElementById("sizeValue");
 let colorPicker = document.getElementById("colorPicker");
 let colorMode = document.getElementById("colorMode");
+
+// Function to manage active button state
+function setActiveButton(activeButton) {
+  console.log(activeButton);
+  // Remove 'active' class from all buttons
+  [colorMode, eraser, random].forEach(button => button.classList.remove('active'));  
+  // Add 'active' class to the clicked button
+  activeButton.classList.add('active');
+}
+
 function boardCreation(size) {
   // square.forEach((div) => div.remove(div));
+  colorMode.classList.add('active');
   board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   console.log(board);
@@ -25,18 +36,16 @@ function boardCreation(size) {
 
 // Color Picker
 colorMode.addEventListener("click", function (e) {
+  setActiveButton(colorMode);
   let colorVal = colorPicker.value;
   board.querySelectorAll("div").forEach((div) => {
-    colorMode.style.backgroundColor = "black";
-    colorMode.style.color = "white";
     div.addEventListener("mouseover", () => colorSquare(div, colorVal));
   });
 });
 
 // Eraser Handeler
 eraser.addEventListener("click", function () {
-  eraser.style.backgroundColor = "black";
-  eraser.style.color = "white";
+  setActiveButton(eraser);
   board.querySelectorAll("div").forEach((div) => {
     div.addEventListener("mouseover", () => colorSquare(div, "white"));
   });
@@ -44,8 +53,7 @@ eraser.addEventListener("click", function () {
 
 // Random Color
 random.addEventListener("click", function () {
-  random.style.backgroundColor = "black";
-  random.style.color = "white";
+  setActiveButton(random);
   board.querySelectorAll("div").forEach((div) => {
     div.addEventListener("mouseover", () => colorSquare(div, "random"));
   });
