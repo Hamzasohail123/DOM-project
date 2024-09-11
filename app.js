@@ -1,4 +1,4 @@
-let click = true;
+let click = false;
 let board = document.getElementById("board");
 let square = board.querySelectorAll("div");
 let eraser = document.getElementById("eraser");
@@ -11,15 +11,15 @@ let colorMode = document.getElementById("colorMode");
 // Function to manage active button state
 function setActiveButton(activeButton) {
   console.log(activeButton);
-  // Remove 'active' class from all buttons
-  [colorMode, eraser, random].forEach(button => button.classList.remove('active'));  
-  // Add 'active' class to the clicked button
-  activeButton.classList.add('active');
+  [colorMode, eraser, random].forEach((button) =>
+    button.classList.remove("active")
+  );
+  activeButton.classList.add("active");
 }
 
 function boardCreation(size) {
   // square.forEach((div) => div.remove(div));
-  colorMode.classList.add('active');
+  colorMode.classList.add("active");
   board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   console.log(board);
@@ -28,7 +28,6 @@ function boardCreation(size) {
   let totalSize = size * size;
   for (let i = 0; i < totalSize; i++) {
     const div = document.createElement("div");
-    // square.style.backgroundColor = "blue"; // Initial color
     div.addEventListener("mouseover", () => colorSquare(div, "black"));
     board.appendChild(div);
   }
@@ -47,7 +46,7 @@ colorMode.addEventListener("click", function (e) {
 eraser.addEventListener("click", function () {
   setActiveButton(eraser);
   board.querySelectorAll("div").forEach((div) => {
-    div.addEventListener("mouseover", () => colorSquare(div, "white"));
+    div.addEventListener("mouseover", ()=>colorSquare(div, "white"));
   });
 });
 
