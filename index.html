@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="display: flex; gap: 50px; background-color: #EDEDED;margin-top: 50px;">
+    <!-- left side -->
+    <div style="display: flex; flex-direction: column; gap: 6px; width: 20%; margin-top: 80px; margin-left: 30px;">
+        <input type="color" value="#333333" id="colorPicker"
+        style="width: 100px; height: 100px; cursor: pointer; background-color: transparent; margin-left: 70px;">
+        <button id="colorMode"
+            style="border: 1px; padding: 12px; border-radius: 5px; font-size: medium;cursor: pointer;background-color: transparent; border: 2px solid;">Color
+            mode</button>
+        <button id="rainbowMode"
+            style="border: 1px; padding: 12px; border-radius: 5px; font-size: medium; cursor: pointer;background-color: transparent; border: 2px solid;">Rainbow
+            mode</button>
+        <button id="eraser"
+            style="border: 1px; padding: 12px; border-radius: 5px; font-size: medium;cursor: pointer;background-color: transparent; border: 2px solid;">Eraser</button>
+        <button id="clear"
+            style="border: 1px; padding: 12px; border-radius: 5px; font-size: medium;cursor: pointer;background-color: transparent; border: 2px solid;">Clear</button>
+        <div id="sizeValue" class="size-value" style="margin-left: 40%;">16 x 16</div>
+        <input id="sizeRange" type="range" value="16" min="2" max="100">
+
+    </div>
+
+
+    <!-- Rigth side -->
+    <div id="board" class="gridArea" style="background-color: white; width: 500px; height: 500px; display: grid;"></div>
+    </div>
+</body>
+<script src="app.js"></script>
+
+</html>
